@@ -11,7 +11,8 @@ export const ContextProvider = ({children}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passShow, setPassShow] = useState(false);
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState('');
+  const [selectGender, setSelectGender] = useState('Wash + Iron');
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -60,6 +61,8 @@ export const ContextProvider = ({children}) => {
         handleLogin,
         handleSignup,
         handleLogout,
+        selectGender,
+        setSelectGender,
       }}>
       {children}
     </StateContext.Provider>

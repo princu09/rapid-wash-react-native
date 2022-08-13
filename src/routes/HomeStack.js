@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Login, Home, Signup, AppBar} from '../index';
 import {useStateContext} from '../context/ContextProvider';
-import {Text} from 'react-native';
+import LaundryPage from '../screens/LaundryPage';
 
 const HomeStack = () => {
   const {currentUser} = useStateContext();
@@ -22,7 +22,7 @@ const HomeStack = () => {
         </Stack.Navigator>
       ) : (
         <Stack.Navigator
-          initialRouteName="home"
+          initialRouteName="Home"
           screenOptions={{
             headerStyle: {
               backgroundColor: 'white',
@@ -32,9 +32,14 @@ const HomeStack = () => {
             name="Home"
             component={Home}
             options={{
-              header: () => (
-                <AppBar title="" />
-              ),
+              header: () => <AppBar title="" />,
+            }}
+          />
+          <Stack.Screen
+            name="LaundryPage"
+            component={LaundryPage}
+            options={{
+              header: () => null,
             }}
           />
         </Stack.Navigator>
